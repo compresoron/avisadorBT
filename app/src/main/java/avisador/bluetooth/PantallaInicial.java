@@ -1,26 +1,22 @@
 package avisador.bluetooth;
 
-import android.app.AlertDialog;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
-import android.content.ClipData;
 import android.content.Context;
-import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
-import java.lang.reflect.Array;
 import java.util.Set;
 
 
@@ -154,6 +150,9 @@ public class PantallaInicial extends ActionBarActivity {
                 // Carga la seleccion
                 String item = (String) ListaDevBT.getAdapter().getItem(position);
                 Toast.makeText(getApplicationContext(), item, Toast.LENGTH_SHORT).show();
+
+
+                ((Button) findViewById(R.id.button_buscar_avisador)).setText(item);
 
                 ListaDevBT.setVisibility( View.INVISIBLE);
 

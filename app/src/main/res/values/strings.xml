@@ -9,5 +9,6 @@
         <string name="ToggleButton_ActivarBT">Activa BT</string>
         <string name="ToggleButton_DesactivaBT">Desactiva BT</string>
 
-        <string name="Buscar_avisador">Buscar Avisador</string>
+    <string name="Seleccionar_avisador">Seleccionar BT</string>
+    <string name="Buscar_avisador">Buscar BT</string>
 </resources>
