@@ -151,8 +151,10 @@ public class PantallaInicial extends ActionBarActivity {
                 String item = (String) ListaDevBT.getAdapter().getItem(position);
                 Toast.makeText(getApplicationContext(), item, Toast.LENGTH_SHORT).show();
 
-
+                // Actualiza el texto del boton de seleccion de red con el nombre de la red
+                // Antes de esto se debe confirmar que el avisador esta dentro de rango
                 ((Button) findViewById(R.id.button_buscar_avisador)).setText(item);
+
 
                 ListaDevBT.setVisibility( View.INVISIBLE);
 
