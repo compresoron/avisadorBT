@@ -3,6 +3,7 @@ package avisador.bluetooth;
 import android.app.AlertDialog;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
+import android.content.ClipData;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
@@ -10,6 +11,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -123,7 +125,7 @@ public class PantallaInicial extends ActionBarActivity {
     public void evento_BuscarAvisador(View view) {
 
 
-        ListView ListaDevBT = (ListView) findViewById((R.id.ListaBT));
+        final ListView ListaDevBT = (ListView) findViewById((R.id.ListaBT));
         BluetoothAdapter ListaDevEmparejados = BluetoothAdapter.getDefaultAdapter();
 
        ArrayAdapter lista= new ArrayAdapter( this, android.R.layout.simple_list_item_1);
@@ -142,7 +144,21 @@ public class PantallaInicial extends ActionBarActivity {
             ListaDevBT.setAdapter( lista);
         }
 
+        ListaDevBT.setVisibility(View.VISIBLE);
 
-        ListaDevBT.setVisibility( View.VISIBLE);
+        // Control de evento para seleccion de dispositivo
+
+        ListaDevBT.setOnItemClickListener( new  AdapterView.OnItemClickListener() {
+            public void onItemClick( AdapterView<?> parent, View view, int position, long id) {
+
+                // Carga la seleccion
+                String item = (String) ListaDevBT.getAdapter().getItem(position);
+                Toast.makeText(getApplicationContext(), item, Toast.LENGTH_SHORT).show();
+
+                ListaDevBT.setVisibility( View.INVISIBLE);
+
+            }
+        });
+
     }
 }
