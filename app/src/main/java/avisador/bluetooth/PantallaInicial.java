@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ListView;
@@ -17,6 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import java.lang.reflect.Array;
 import java.util.Set;
 
 
@@ -124,18 +126,23 @@ public class PantallaInicial extends ActionBarActivity {
         ListView ListaDevBT = (ListView) findViewById((R.id.ListaBT));
         BluetoothAdapter ListaDevEmparejados = BluetoothAdapter.getDefaultAdapter();
 
+       ArrayAdapter lista= new ArrayAdapter( this, android.R.layout.simple_list_item_1);
+
 
         Set<BluetoothDevice> pairedDevices = ListaDevEmparejados.getBondedDevices();
         if (pairedDevices.size() > 0) {
             // Loop through paired devices
             for (BluetoothDevice device : pairedDevices) {
-                // Add the name and address to an array adapter to show in a ListView
 
-                ListaDevBT.add(device.getName() + "\n" + device.getAddress());
+
+                lista.add( device.getName() + "\n" + device.getAddress());
+
             }
+
+            ListaDevBT.setAdapter( lista);
         }
 
 
-        ListaDevBT.setVisibility(true);
+        ListaDevBT.setVisibility( View.VISIBLE);
     }
 }
