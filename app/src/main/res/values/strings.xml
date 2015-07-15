@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Avisador Bluetooth v1.0</string>
+
+        <string name="action_settings">Ajustes avanzados</string>
+        <string name="DeviceNoBT">El dispositivo no tiene BT</string>
+        <string name="DeviceYesBT">El dispositivo tiene BT</string>
+
+        <string name="label_ActivaBT">Activar Bluetooth</string>
+        <string name="ToggleButton_ActivarBT">Activa BT</string>
+        <string name="ToggleButton_DesactivaBT">Desactiva BT</string>
+
+        <string name="Buscar_avisador">Buscar Avisador</string>
+</resources>
